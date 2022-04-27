@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+<div>
+{% block content %}
+        <section>
+        {{ gogn['name'] }}
+        {{ gogn['summary'] }}
+            <img src="{{ gogn['image']['medium'] }}">
+        {% else %}
+            <img class="mynd" src="{{ url_for('staatic', filename='no-img.png') }}" >
+        {% endif %}
+    </div>
+    <div>
+    <h3><b>Name:</b>   {{s['name']}}</h3>
+    <h3><b>Premierd:</b> {{s['premierd'][8:10]}}.{{s['premierd'][5:7]}}.{{s['premierd'][0:4] }}</h3>
+    {% if s['ended'] %}
+        <h3><b>Ended:</b> {{s['ended'][8:10]}}.{{s['ended'][5:7]}}. {{s['ended'][0:4]}}</h3>
+    {% else %}
+        <h3><b>Ended:</b> Still running</h3>
+    {% endif %}
+    <h3><b>show summary:</b></h3>
+    {% if s['summary'] %}
+        {% set summary = s['summary'].replace("<p>","").replace("</p>","").repalce("<b>","").replace("</b>","") %}
+        <p class="jafna"><b>{{ summary }}</b></p>
+    {% else %}
+        <p class="jafna"><b>No summary for this show yet</b></p>
+    {% endif %}
+    </div>
+</section>
+{% endblock %}

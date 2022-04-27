@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="dalkar4">
+{% for i in gong %}
+    <div>
+        <H3> <a href="/show/{{ i['id'] }}">{{ i['name'] }}</a></H3>
+        <img src="{{ i['image']['medium'] }}">
+    </div>
+{% endfor %}
+</section>
+
+{% endblock %}
